@@ -120,7 +120,7 @@ export default function App(){
   const CH=isMobile?48:58,CW=isMobile?48:58;
   const LBL_W=isMobile?50:63;
 
-  const selectGate=(g)=>{setSelGate(selGate===g?null:g);setPending(null);if(isMobile)setShowPalette(false);};
+  const selectGate=(g)=>{setSelGate(selGate===g?null:g);setPending(null);};
 
   // Gate palette content (shared between mobile and desktop)
   const paletteContent=(
@@ -180,7 +180,7 @@ export default function App(){
       {!isMobile&&<div style={{marginTop:20,padding:12,background:TH.surface,borderRadius:10,fontSize:11.5,color:TH.textMid,lineHeight:1.7,border:`1px solid ${TH.borderLight}`}}>
         <div style={{fontWeight:600,color:TH.text,marginBottom:4,fontSize:12}}>{'\u64CD\u4F5C\u8AAA\u660E'} Usage</div>
         <div>1. {'\u9078\u64C7'} Gate</div><div>2. {'\u9EDE\u64CA\u96FB\u8DEF\u683C\u653E\u7F6E'}</div>
-        <div>3. {'\u96D9\u91CF\u5B50\u9596\u9700\u9EDE\u64CA\u5169\u500B'} Qubit</div>
+        <div>3. {'\u96D9\u91CF\u5B50\u9598\u9700\u9EDE\u64CA\u5169\u500B'} Qubit</div>
         <div>4. {'\u7121\u9078\u64C7\u6642\u9EDE\u64CA\u53EF\u522A\u9664'}</div>
         <div>5. {'\u6309'} <span style={{color:TH.accent,fontWeight:600}}>{'\u25B6'} Run</span> {'\u57F7\u884C\u6A21\u64EC'}</div>
       </div>}
@@ -229,7 +229,7 @@ export default function App(){
       {isMobile&&(
         <div style={{borderBottom:`1px solid ${TH.border}`,background:TH.sidebar,flexShrink:0}}>
           <button onClick={()=>setShowPalette(!showPalette)} style={{width:'100%',padding:'8px 12px',background:'transparent',border:'none',cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'space-between',fontFamily:'inherit',fontSize:13,color:TH.text,fontWeight:500}}>
-            <span>{selGate?<><span style={{display:'inline-flex',width:22,height:22,borderRadius:4,alignItems:'center',justifyContent:'center',fontWeight:700,fontSize:12,fontFamily:"'Source Code Pro',monospace",background:selGate==='M'?'#F1F5F9':(GATE_DEFS[selGate]?.bg||'#F1F5F9'),color:selGate==='M'?TH.textMid:(GATE_DEFS[selGate]?.color||TH.textMid),marginRight:6,border:`1.5px solid ${selGate==='M'?TH.border:(GATE_DEFS[selGate]?.color||TH.border)}40`,verticalAlign:'middle'}}>{selGate==='M'?'M':(GATE_DEFS[selGate]?.label||selGate)}</span>{selGate==='M'?'Measurement':(GATE_DEFS[selGate]?.desc||selGate)} selected</>:'Select a Gate \u9078\u64C7\u91CF\u5B50\u9596'}</span>
+            <span>{selGate?<><span style={{display:'inline-flex',width:22,height:22,borderRadius:4,alignItems:'center',justifyContent:'center',fontWeight:700,fontSize:12,fontFamily:"'Source Code Pro',monospace",background:selGate==='M'?'#F1F5F9':(GATE_DEFS[selGate]?.bg||'#F1F5F9'),color:selGate==='M'?TH.textMid:(GATE_DEFS[selGate]?.color||TH.textMid),marginRight:6,border:`1.5px solid ${selGate==='M'?TH.border:(GATE_DEFS[selGate]?.color||TH.border)}40`,verticalAlign:'middle'}}>{selGate==='M'?'M':(GATE_DEFS[selGate]?.label||selGate)}</span>{selGate==='M'?'Measurement':(GATE_DEFS[selGate]?.desc||selGate)} selected</>:'Select a Gate \u9078\u64C7\u91CF\u5B50\u908F\u8F2F\u9598'}</span>
             <span style={{fontSize:10,color:TH.textLight}}>{showPalette?'\u25B2':'\u25BC'}</span>
           </button>
           {showPalette&&<div style={{padding:'8px 12px 12px',maxHeight:200,overflowY:'auto'}}>{paletteContent}</div>}
